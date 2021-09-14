@@ -38,6 +38,7 @@ namespace MiCalculadora
 			this.btnConvertBinario = new System.Windows.Forms.Button();
 			this.btnConvertDecimal = new System.Windows.Forms.Button();
 			this.lbxResultados = new System.Windows.Forms.ListBox();
+			this.lblBinary = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// txtNum1
@@ -112,6 +113,7 @@ namespace MiCalculadora
 			this.btnConvertBinario.TabIndex = 7;
 			this.btnConvertBinario.Text = "Convertir a binario";
 			this.btnConvertBinario.UseVisualStyleBackColor = true;
+			this.btnConvertBinario.Click += new System.EventHandler(this.btnConvertBinario_Click);
 			// 
 			// btnConvertDecimal
 			// 
@@ -121,6 +123,7 @@ namespace MiCalculadora
 			this.btnConvertDecimal.TabIndex = 8;
 			this.btnConvertDecimal.Text = "Convertir a decimal";
 			this.btnConvertDecimal.UseVisualStyleBackColor = true;
+			this.btnConvertDecimal.Click += new System.EventHandler(this.btnConvertDecimal_Click);
 			// 
 			// lbxResultados
 			// 
@@ -132,11 +135,22 @@ namespace MiCalculadora
 			this.lbxResultados.Size = new System.Drawing.Size(242, 229);
 			this.lbxResultados.TabIndex = 3;
 			// 
+			// lblBinary
+			// 
+			this.lblBinary.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblBinary.Location = new System.Drawing.Point(12, 12);
+			this.lblBinary.Name = "lblBinary";
+			this.lblBinary.Size = new System.Drawing.Size(272, 25);
+			this.lblBinary.TabIndex = 9;
+			this.lblBinary.Text = "0";
+			this.lblBinary.TextAlign = System.Drawing.ContentAlignment.TopRight;
+			// 
 			// FormCalculadora
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(544, 256);
+			this.Controls.Add(this.lblBinary);
 			this.Controls.Add(this.lbxResultados);
 			this.Controls.Add(this.btnConvertDecimal);
 			this.Controls.Add(this.btnConvertBinario);
@@ -152,6 +166,7 @@ namespace MiCalculadora
 			this.Name = "FormCalculadora";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Calculadora de Ledesma Matías 2°A";
+			this.Load += new System.EventHandler(this.FormCalculadora_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -168,6 +183,7 @@ namespace MiCalculadora
 		private System.Windows.Forms.Button btnConvertBinario;
 		private System.Windows.Forms.Button btnConvertDecimal;
 		private System.Windows.Forms.ListBox lbxResultados;
+		private System.Windows.Forms.Label lblBinary;
 	}
 }
 

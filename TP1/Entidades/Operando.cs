@@ -78,7 +78,7 @@ namespace Entidades
 		{
 			string retorno;
 			this.Numero = numero;
-			retorno = DecimalBinario(this.numero);			
+			retorno = DecimalBinario(this.numero);
 			return retorno;
 		}
 		#endregion
@@ -105,7 +105,7 @@ namespace Entidades
 		#region Propiedades
 		private string Numero
 		{
-			set 
+			set
 			{
 				this.numero = ValidarOperando(value);
 			}

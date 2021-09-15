@@ -11,17 +11,27 @@ using Entidades;
 
 namespace MiCalculadora
 {
-	public partial class FormCalculadora : Form
+	public partial class Form1 : Form
 	{
-		public FormCalculadora()
+		public Form1()
 		{
 			InitializeComponent();
 		}
 
-		private void btnLimpiar_Click(object sender, EventArgs e)
+		private void btnOperar_Click(object sender, EventArgs e)
 		{
-			this.Limpiar();
+			double resultado = Operar(txtNumero1.Text, txtNumero2.Text, cbxOperadores.SelectedItem.ToString());
+			lstOperaciones.Items.Add(txtNumero1.Text + " " + cbxOperadores.SelectedItem.ToString() + " " + txtNumero2.Text + " = " + resultado);
 		}
+
+		private void Limpiar()
+		{
+			txtNumero1.Text = "";
+			txtNumero2.Text = "";
+			lblBinary.Text = "0";
+			cbxOperadores.SelectedIndex = 0;
+			lstOperaciones.Items.Clear();
+		}		
 
 		private void btnCerrar_Click(object sender, EventArgs e)
 		{
@@ -29,15 +39,9 @@ namespace MiCalculadora
 			if (result == DialogResult.Yes) Application.Exit();
 		}
 
-		private void btnOperar_Click(object sender, EventArgs e)
+		private void btnConvertirBinario_Click(object sender, EventArgs e)
 		{
-			double resultado = Operar(txtNum1.Text, txtNum2.Text, cbxOperador.SelectedItem.ToString());
-			lbxResultados.Items.Add(txtNum1.Text + " " + cbxOperador.SelectedItem.ToString() + " " + txtNum2.Text + " = " + resultado);
-		}
-
-		private void btnConvertBinario_Click(object sender, EventArgs e)
-		{
-			string dec = lbxResultados.SelectedItem.ToString();
+			string dec = lstOperaciones.SelectedItem.ToString();
 			string[] resultado = dec.Split(' ');
 			string result = "";
 			foreach (string c in resultado)
@@ -47,27 +51,21 @@ namespace MiCalculadora
 			Operando bin = new Operando();
 			string resultadoBin = bin.DecimalBinario(result);
 			lblBinary.Text = resultadoBin;
-			lbxResultados.Items.Add(resultadoBin);
-
+			lstOperaciones.Items.Add(resultadoBin);
 		}
 
-		private void btnConvertDecimal_Click(object sender, EventArgs e)
+		private void btnConvertirDecimal_Click(object sender, EventArgs e)
 		{
-			string binary = lbxResultados.SelectedItem.ToString();
+			string binary = lstOperaciones.SelectedItem.ToString();
 			Operando bin = new Operando();
 			string resultado = bin.BinarioDecimal(binary);
 			lblBinary.Text = resultado;
-			lbxResultados.Items.Add(resultado);
-			
+			lstOperaciones.Items.Add(resultado);
 		}
 
-		private void Limpiar()
+		private void Form1_Load(object sender, EventArgs e)
 		{
-			txtNum1.Text = "";
-			txtNum2.Text = "";
-			lblBinary.Text = "0";
-			cbxOperador.SelectedIndex = 0;
-			lbxResultados.Items.Clear();
+			this.Limpiar();
 		}
 
 		private static double Operar(string numero1, string numero2, string operando)
@@ -84,7 +82,7 @@ namespace MiCalculadora
 			return resultado;
 		}
 
-		private void FormCalculadora_Load(object sender, EventArgs e)
+		private void btnLimpiar_Click(object sender, EventArgs e)
 		{
 			this.Limpiar();
 		}

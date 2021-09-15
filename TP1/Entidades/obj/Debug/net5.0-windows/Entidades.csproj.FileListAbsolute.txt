@@ -1,0 +1,12 @@
+F:\UTN\ProgramaciónII\tp_laboratorio_2\TP1\Entidades\bin\Debug\net5.0-windows\Entidades.deps.json
+F:\UTN\ProgramaciónII\tp_laboratorio_2\TP1\Entidades\bin\Debug\net5.0-windows\Entidades.dll
+F:\UTN\ProgramaciónII\tp_laboratorio_2\TP1\Entidades\bin\Debug\net5.0-windows\ref\Entidades.dll
+F:\UTN\ProgramaciónII\tp_laboratorio_2\TP1\Entidades\bin\Debug\net5.0-windows\Entidades.pdb
+F:\UTN\ProgramaciónII\tp_laboratorio_2\TP1\Entidades\obj\Debug\net5.0-windows\Entidades.csproj.AssemblyReference.cache
+F:\UTN\ProgramaciónII\tp_laboratorio_2\TP1\Entidades\obj\Debug\net5.0-windows\Entidades.GeneratedMSBuildEditorConfig.editorconfig
+F:\UTN\ProgramaciónII\tp_laboratorio_2\TP1\Entidades\obj\Debug\net5.0-windows\Entidades.AssemblyInfoInputs.cache
+F:\UTN\ProgramaciónII\tp_laboratorio_2\TP1\Entidades\obj\Debug\net5.0-windows\Entidades.AssemblyInfo.cs
+F:\UTN\ProgramaciónII\tp_laboratorio_2\TP1\Entidades\obj\Debug\net5.0-windows\Entidades.csproj.CoreCompileInputs.cache
+F:\UTN\ProgramaciónII\tp_laboratorio_2\TP1\Entidades\obj\Debug\net5.0-windows\Entidades.dll
+F:\UTN\ProgramaciónII\tp_laboratorio_2\TP1\Entidades\obj\Debug\net5.0-windows\ref\Entidades.dll
+F:\UTN\ProgramaciónII\tp_laboratorio_2\TP1\Entidades\obj\Debug\net5.0-windows\Entidades.pdb

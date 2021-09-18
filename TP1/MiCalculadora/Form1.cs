@@ -24,15 +24,6 @@ namespace MiCalculadora
 			lstOperaciones.Items.Add(txtNumero1.Text + " " + cbxOperadores.SelectedItem.ToString() + " " + txtNumero2.Text + " = " + resultado);
 		}
 
-		private void Limpiar()
-		{
-			txtNumero1.Text = "";
-			txtNumero2.Text = "";
-			lblBinary.Text = "0";
-			cbxOperadores.SelectedIndex = 0;
-			lstOperaciones.Items.Clear();
-		}		
-
 		private void btnCerrar_Click(object sender, EventArgs e)
 		{
 			DialogResult result = MessageBox.Show("¿Seguro de que desea salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -68,6 +59,20 @@ namespace MiCalculadora
 			this.Limpiar();
 		}
 
+		private void btnLimpiar_Click(object sender, EventArgs e)
+		{
+			this.Limpiar();
+		}
+
+		private void Limpiar()
+		{
+			txtNumero1.Text = "";
+			txtNumero2.Text = "";
+			lblBinary.Text = "0";
+			cbxOperadores.SelectedIndex = 0;
+			lstOperaciones.Items.Clear();
+		}
+
 		private static double Operar(string numero1, string numero2, string operando)
 		{
 			double resultado;
@@ -80,11 +85,6 @@ namespace MiCalculadora
 			Operando num2 = new Operando(numero2);
 			resultado = Calculadora.Operar(num1, num2, opr);
 			return resultado;
-		}
-
-		private void btnLimpiar_Click(object sender, EventArgs e)
-		{
-			this.Limpiar();
 		}
 	}
 }

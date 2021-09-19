@@ -21,7 +21,14 @@ namespace MiCalculadora
 		private void btnOperar_Click(object sender, EventArgs e)
 		{
 			double resultado = Operar(txtNumero1.Text, txtNumero2.Text, cbxOperadores.SelectedItem.ToString());
-			lstOperaciones.Items.Add(txtNumero1.Text + " " + cbxOperadores.SelectedItem.ToString() + " " + txtNumero2.Text + " = " + resultado);
+			if (resultado != Double.MinValue)
+			{
+				lstOperaciones.Items.Add(txtNumero1.Text + " " + cbxOperadores.SelectedItem.ToString() + " " + txtNumero2.Text + " = " + resultado);
+			}
+			else
+			{
+				lstOperaciones.Items.Add(txtNumero1.Text + " " + cbxOperadores.SelectedItem.ToString() + " " + txtNumero2.Text + " = Syntax error");
+			}
 		}
 
 		private void btnCerrar_Click(object sender, EventArgs e)
@@ -85,6 +92,12 @@ namespace MiCalculadora
 			Operando num2 = new Operando(numero2);
 			resultado = Calculadora.Operar(num1, num2, opr);
 			return resultado;
+		}
+
+		private void lstOperaciones_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			btnConvertirBinario.Enabled = true;
+			btnConvertirDecimal.Enabled = true;
 		}
 	}
 }

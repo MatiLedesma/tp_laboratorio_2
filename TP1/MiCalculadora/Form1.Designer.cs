@@ -79,6 +79,7 @@ namespace MiCalculadora
 			this.lstOperaciones.Name = "lstOperaciones";
 			this.lstOperaciones.Size = new System.Drawing.Size(239, 184);
 			this.lstOperaciones.TabIndex = 4;
+			this.lstOperaciones.SelectedIndexChanged += new System.EventHandler(this.lstOperaciones_SelectedIndexChanged);
 			// 
 			// cbxOperadores
 			// 
@@ -128,6 +129,7 @@ namespace MiCalculadora
 			// 
 			// btnConvertirBinario
 			// 
+			this.btnConvertirBinario.Enabled = false;
 			this.btnConvertirBinario.Location = new System.Drawing.Point(12, 144);
 			this.btnConvertirBinario.Name = "btnConvertirBinario";
 			this.btnConvertirBinario.Size = new System.Drawing.Size(133, 47);
@@ -138,6 +140,7 @@ namespace MiCalculadora
 			// 
 			// btnConvertirDecimal
 			// 
+			this.btnConvertirDecimal.Enabled = false;
 			this.btnConvertirDecimal.Location = new System.Drawing.Point(154, 144);
 			this.btnConvertirDecimal.Name = "btnConvertirDecimal";
 			this.btnConvertirDecimal.Size = new System.Drawing.Size(133, 47);

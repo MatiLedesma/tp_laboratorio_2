@@ -77,6 +77,8 @@ namespace MiCalculadora
 			txtNumero2.Text = "";
 			lblBinary.Text = "0";
 			cbxOperadores.SelectedIndex = 0;
+			btnConvertirBinario.Enabled = false;
+			btnConvertirDecimal.Enabled = false;
 			lstOperaciones.Items.Clear();
 		}
 

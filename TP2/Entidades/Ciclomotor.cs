@@ -8,9 +8,7 @@ namespace Entidades
 {
     public class Ciclomotor : Vehiculo
     {
-        public Ciclomotor(EMarca marca, string chasis, ConsoleColor color) : base(chasis, marca, color)
-        {
-        }
+        public Ciclomotor(EMarca marca, string chasis, ConsoleColor color) : base(chasis, marca, color) { }
         
         /// <summary>
         /// Ciclomotor son 'Chico'

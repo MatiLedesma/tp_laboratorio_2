@@ -9,8 +9,8 @@ namespace Entidades
     /// <summary>
     /// La clase Vehiculo no deberá permitir que se instancien elementos de este tipo.
     /// </summary>
-    public class Vehiculo
-    {
+    public abstract class Vehiculo
+    {      
         public enum EMarca
         {
             Chevrolet, Ford, Renault, Toyota, BMW, Honda, HarleyDavidson
@@ -24,9 +24,22 @@ namespace Entidades
         ConsoleColor color;
 
         /// <summary>
+        /// Constructor parametrizado
+        /// </summary>
+        /// <param name="chasis">Chasis del vehiculo</param>
+        /// <param name="marca">Tipo de marca del vehiculo</param>
+        /// <param name="color">Color del vehiculo</param>
+        protected Vehiculo(string chasis, EMarca marca, ConsoleColor color)
+        {
+            this.chasis = chasis;
+            this.marca = marca;
+            this.color = color;
+        }
+
+        /// <summary>
         /// ReadOnly: Retornará el tamaño
         /// </summary>
-        public ETamanio Tamanio { get; }
+        public virtual ETamanio Tamanio { get; }
 
         /// <summary>
         /// Publica todos los datos del Vehiculo.
@@ -67,7 +80,7 @@ namespace Entidades
         /// <returns></returns>
         public static bool operator !=(Vehiculo v1, Vehiculo v2)
         {
-            return (v1.chasis != v2.chasis);
+            return (v1 != v2);
         }
     }
 }

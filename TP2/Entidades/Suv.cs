@@ -6,22 +6,13 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Suv : Ciclomotor
+    public class Suv : Vehiculo
     {
-        public Suv(EMarca marca, string chasis, ConsoleColor color)
-            : base(marca, chasis, color)
-        {
-        }
+        public Suv(EMarca marca, string chasis, ConsoleColor color) : base(chasis, marca, color) { }
         /// <summary>
         /// SUV son 'Grande'
         /// </summary>
-        protected override short Tamanio
-        {
-            get
-            {
-                return (short)ETamanio.Grande;
-            }
-        }
+        public override ETamanio Tamanio { get { return ETamanio.Grande; } }
 
         public new string Mostrar()
         {

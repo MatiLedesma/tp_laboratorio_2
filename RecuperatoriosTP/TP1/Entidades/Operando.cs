@@ -14,9 +14,8 @@ namespace Entidades
 		/// <summary>
 		/// Constructor operando sin parametros
 		/// </summary>
-		public Operando()
+		public Operando() : this(0)
 		{
-			this.numero = 0;
 		}
 		/// <summary>
 		/// Constructor operando con parametros

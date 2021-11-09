@@ -21,8 +21,9 @@ namespace Entidades
 		/// Constructor operando con parametros
 		/// </summary>
 		/// <param name="numero">Obtiene el numero</param>
-		public Operando(double numero) : this(numero.ToString())
+		public Operando(double numero)
 		{
+			this.numero = numero;
 		}
 		/// <summary>
 		/// Constructor operando con parametros
@@ -30,7 +31,7 @@ namespace Entidades
 		/// <param name="numero">Obtiene el numero en string</param>
 		public Operando(string numero)
 		{
-			this.numero = ValidarOperando(numero);
+			this.Numero = numero;
 		}
 		#endregion
 		#region Metodos

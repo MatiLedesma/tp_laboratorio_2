@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
 
@@ -21,15 +14,19 @@ namespace MiCalculadora
 		private void btnOperar_Click(object sender, EventArgs e)
 		{
 			double resultado = Operar(txtNumero1.Text, txtNumero2.Text, cbxOperadores.SelectedItem.ToString());
+			string operador = cbxOperadores.SelectedItem.ToString() == " " ? "+" : cbxOperadores.SelectedItem.ToString();
+			string num1 = txtNumero1.Text == " " ? "0" : txtNumero1.Text;
+			string num2 = txtNumero2.Text == " " ? "0" : txtNumero2.Text;
 			if (resultado != Double.MinValue)
 			{
-				lstOperaciones.Items.Add(txtNumero1.Text + " " + cbxOperadores.SelectedItem.ToString() + " " + txtNumero2.Text + " = " + resultado);
+				lstOperaciones.Items.Add(num1 + " " + operador + " " + num2 + " = " + resultado);
+				lblBinary.Text = resultado.ToString();
 			}
 			else
 			{
-				lstOperaciones.Items.Add(txtNumero1.Text + " " + cbxOperadores.SelectedItem.ToString() + " " + txtNumero2.Text + " = Syntax error");
+				lstOperaciones.Items.Add(num1 + " " + operador + " " + num2 + " = Syntax error");
+				lblBinary.Text = "Syntax error";
 			}
-			lblBinary.Text = resultado.ToString();
 		}
 
 		private void btnCerrar_Click(object sender, EventArgs e)
@@ -39,13 +36,11 @@ namespace MiCalculadora
 
 		private void btnConvertirBinario_Click(object sender, EventArgs e)
 		{
-			string dec = lstOperaciones.SelectedItem.ToString();
-			string[] resultado = dec.Split(' ');
 			string result = "";
-			foreach (string c in resultado)
-			{
-				result = c;
-			}
+			if (lblBinary.Text != "" || lblBinary.Text != "Syntax error")
+            {
+				result = lblBinary.Text;
+            }
 			Operando bin = new Operando();
 			string resultadoBin = bin.DecimalBinario(result);
 			lblBinary.Text = resultadoBin;
@@ -54,9 +49,13 @@ namespace MiCalculadora
 
 		private void btnConvertirDecimal_Click(object sender, EventArgs e)
 		{
-			string binary = lstOperaciones.SelectedItem.ToString();
+			string result = "";
+			if (lblBinary.Text != "" || lblBinary.Text != "Syntax error")
+			{
+				result = lblBinary.Text;
+			}
 			Operando bin = new Operando();
-			string resultado = bin.BinarioDecimal(binary);
+			string resultado = bin.BinarioDecimal(result);
 			lblBinary.Text = resultado;
 			lstOperaciones.Items.Add(resultado);
 		}
@@ -77,8 +76,6 @@ namespace MiCalculadora
 			txtNumero2.Text = "";
 			lblBinary.Text = "0";
 			cbxOperadores.SelectedIndex = 0;
-			btnConvertirBinario.Enabled = false;
-			btnConvertirDecimal.Enabled = false;
 			lstOperaciones.Items.Clear();
 		}
 
@@ -94,12 +91,6 @@ namespace MiCalculadora
 			Operando num2 = new Operando(numero2);
 			resultado = Calculadora.Operar(num1, num2, opr);
 			return resultado;
-		}
-
-		private void lstOperaciones_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			btnConvertirBinario.Enabled = true;
-			btnConvertirDecimal.Enabled = true;
 		}
 
         private void MiCalculadora_FormClosing(object sender, FormClosingEventArgs e)

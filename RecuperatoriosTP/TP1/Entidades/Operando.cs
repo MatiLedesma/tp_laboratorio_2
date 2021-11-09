@@ -34,6 +34,7 @@ namespace Entidades
 			this.numero = ValidarOperando(numero);
 		}
 		#endregion
+		#region Metodos
 		/// <summary>
 		/// Valida si la operacion es valida
 		/// </summary>
@@ -49,7 +50,6 @@ namespace Entidades
 			}
 			return num;
 		}
-		#region Metodos
 		/// <summary>
 		/// Verifica si el numero ingresado es binario
 		/// </summary>
@@ -116,7 +116,6 @@ namespace Entidades
 			return retorno;
 		}
 		#endregion
-
 		#region Sobrecarga de operadores
 		/// <summary>
 		/// Sobrecarga del operador +
@@ -159,7 +158,6 @@ namespace Entidades
 			return n2.numero != 0 ? n1.numero / n2.numero : double.MinValue;
 		}
 		#endregion
-
 		#region Propiedades
 		/// <summary>
 		/// Propiedad numero, valida y asigna el operando al atributo numero

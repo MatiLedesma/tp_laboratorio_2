@@ -19,7 +19,9 @@ namespace Entidades
         /// <param name="marca"></param>
         /// <param name="chasis"></param>
         /// <param name="color"></param>
-        public Sedan(EMarca marca, string chasis, ConsoleColor color) : base(chasis, marca, color) { tipo = ETipo.CuatroPuertas; }
+        public Sedan(EMarca marca, string chasis, ConsoleColor color) : this(marca, chasis, color, ETipo.CuatroPuertas) 
+        { 
+        }
         /// <summary>
         /// Asigna el tipo de puertas y reutiliza el constructor de 3 parametros 
         /// </summary>
@@ -28,7 +30,7 @@ namespace Entidades
         /// <param name="color"></param>
         /// <param name="tipo"></param>
         public Sedan(EMarca marca, string chasis, ConsoleColor color, ETipo tipo)
-            : this(marca, chasis, color)
+            : base(chasis, marca, color)
         {
             this.tipo = tipo;
         }
@@ -44,15 +46,13 @@ namespace Entidades
             }
         }
 
-        public new string Mostrar()
+        public override sealed string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine("SEDAN");
             sb.AppendLine(base.Mostrar());
-            sb.AppendLine($"TAMAÑO : {this.Tamanio}");
-            sb.AppendLine($"TIPO : {this.tipo}");
-            sb.AppendLine("");
+            sb.AppendLine($"TAMAÑO : {this.Tamanio} TIPO : {this.tipo}");
             sb.AppendLine("---------------------");
 
             return sb.ToString();

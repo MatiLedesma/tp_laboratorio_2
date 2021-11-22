@@ -172,8 +172,21 @@ namespace StockForm
                 }
             }
         }
+
         #endregion
 
-        
+        private void btnTraer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Conexion conexion = new Conexion();
+
+                this.stock.Stock_a = conexion.ObtenerProductos();
+            }
+            catch(Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Error");
+            }
+        }
     }
 }

@@ -1,29 +1,33 @@
-﻿using Microsoft.Data.SqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace Entidades
 {
     public class Conexion
     {
         #region Atributos
-        private string datos_conexion;
+        private static string datos_conexion;
         private SqlConnection conexion;
         private SqlCommand command;
         private SqlDataReader dataReader;
         #endregion
         #region Constructores
+        static Conexion()
+        {
+            Conexion.datos_conexion = @"Server=matias;Database=LedesmaMatias_TP4_Stock;Trusted_Connection=True;";
+        }
         /// <summary>
         /// Hace la conexión a la base de datos
         /// </summary>
         public Conexion()
         {
-            this.datos_conexion = @"Server=localhost;Database=LedesmaMatias_TP4_Stock;Trusted_Connection=True;";
-            this.conexion = new SqlConnection(this.datos_conexion);
+            this.conexion = new SqlConnection(Conexion.datos_conexion);
         }
         #endregion
         #region Metodos
+
         public List<Producto> ObtenerProductos()
         {
             List<Producto> productos = new List<Producto>();
@@ -34,6 +38,8 @@ namespace Entidades
                 this.command = new SqlCommand();
                 this.command.CommandType = CommandType.Text;
                 this.command.CommandText = "SELECT * FROM dbo.productos";
+                this.command.Connection = this.conexion;
+
                 this.conexion.Open();
                 this.dataReader = this.command.ExecuteReader();
 
@@ -49,11 +55,15 @@ namespace Entidades
 
                     alimentos.Add(ali);
                 }
-
+                this.conexion.Close();
                 this.command = new SqlCommand();
                 this.command.CommandType = CommandType.Text;
-                this.command.CommandText = "SELECT * FROM dbo.productos";
+                this.command.CommandText = "SELECT * FROM dbo.tecnologia";
+                this.command.Connection = this.conexion;
+
+                this.conexion.Open();
                 this.dataReader = this.command.ExecuteReader();
+
 
                 while (this.dataReader.Read())
                 {
@@ -96,12 +106,13 @@ namespace Entidades
             bool status = false;
             try
             {
-                this.conexion.Open();
-                string query = $"INSERT INTO dbo.productos (id, nombre, descripcion, tipo, precio) " +
-                    $"VALUES(${alimentos.Id}, {alimentos.Nombre}, {alimentos.Descripcion}, {alimentos.TipoAlim}, {alimentos.Precio})";
+                string query = $"INSERT INTO dbo.productos (id, nombre, descripcion, tipo, precio) VALUES ({alimentos.Id}, '{alimentos.Nombre}', '{alimentos.Descripcion}', '{alimentos.TipoAlim}', {alimentos.Precio})";
                 this.command = new SqlCommand();
                 this.command.CommandType = CommandType.Text;
                 this.command.CommandText = query;
+                this.command.Connection = this.conexion;
+
+                this.conexion.Open();
 
                 int rowsChange = this.command.ExecuteNonQuery();
                 if (rowsChange != 0)
@@ -129,12 +140,12 @@ namespace Entidades
             bool status = false;
             try
             {
-                this.conexion.Open();
-                string query = $"INSERT INTO dbo.tecnologia (id, nombre, descripcion, tipo, precio) " +
-                    $"VALUES(${tecnologia.Id}, {tecnologia.Nombre}, {tecnologia.Especificaciones}, {tecnologia.TipoArtef}, {tecnologia.Precio})";
+                string query = $"INSERT INTO dbo.tecnologia (id, nombre, descripcion, tipo, precio) VALUES ({tecnologia.Id}, '{tecnologia.Nombre}', '{tecnologia.Especificaciones}', '{tecnologia.TipoArtef}', {tecnologia.Precio})";
                 this.command = new SqlCommand();
                 this.command.CommandType = CommandType.Text;
                 this.command.CommandText = query;
+                this.command.Connection = this.conexion;
+                this.conexion.Open();
 
                 int rowsChange = this.command.ExecuteNonQuery();
                 if (rowsChange != 0)

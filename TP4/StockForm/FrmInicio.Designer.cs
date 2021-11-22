@@ -38,12 +38,13 @@ namespace StockForm
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnGBBDD = new System.Windows.Forms.Button();
             this.btnCBBDD = new System.Windows.Forms.Button();
+            this.btnTraer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtStock)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(559, 326);
+            this.btnSalir.Location = new System.Drawing.Point(559, 350);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(77, 33);
             this.btnSalir.TabIndex = 0;
@@ -100,12 +101,12 @@ namespace StockForm
             this.dtStock.Location = new System.Drawing.Point(12, 12);
             this.dtStock.Name = "dtStock";
             this.dtStock.RowTemplate.Height = 25;
-            this.dtStock.Size = new System.Drawing.Size(412, 343);
+            this.dtStock.Size = new System.Drawing.Size(412, 371);
             this.dtStock.TabIndex = 6;
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(433, 264);
+            this.btnActualizar.Location = new System.Drawing.Point(433, 308);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(203, 36);
             this.btnActualizar.TabIndex = 7;
@@ -132,11 +133,22 @@ namespace StockForm
             this.btnCBBDD.UseVisualStyleBackColor = true;
             this.btnCBBDD.Click += new System.EventHandler(this.btnCBBDD_Click);
             // 
+            // btnTraer
+            // 
+            this.btnTraer.Location = new System.Drawing.Point(433, 266);
+            this.btnTraer.Name = "btnTraer";
+            this.btnTraer.Size = new System.Drawing.Size(203, 36);
+            this.btnTraer.TabIndex = 10;
+            this.btnTraer.Text = "Traer Stock BBDD";
+            this.btnTraer.UseVisualStyleBackColor = true;
+            this.btnTraer.Click += new System.EventHandler(this.btnTraer_Click);
+            // 
             // FrmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(648, 367);
+            this.ClientSize = new System.Drawing.Size(648, 395);
+            this.Controls.Add(this.btnTraer);
             this.Controls.Add(this.btnGBBDD);
             this.Controls.Add(this.btnCBBDD);
             this.Controls.Add(this.btnActualizar);
@@ -165,6 +177,7 @@ namespace StockForm
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnGBBDD;
         private System.Windows.Forms.Button btnCBBDD;
+        private System.Windows.Forms.Button btnTraer;
     }
 }
 

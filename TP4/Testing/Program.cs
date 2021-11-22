@@ -53,7 +53,7 @@ namespace Testing
                 catch (Exception e) // lanza excepcion por no ser el formato especificado
                 {
                     Console.WriteLine(e.Message);
-                }                                                                   
+                }
             }
             catch(Exception e) // en caso de surgir un error se genera un log
             {

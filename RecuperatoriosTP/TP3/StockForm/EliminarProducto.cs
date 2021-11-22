@@ -57,26 +57,6 @@ namespace StockForm
                         }
 
                     }
-                    /*if (p is Alimentos)
-                    {
-                        Alimentos a = (Alimentos)p;
-                        if (int.Parse(txtId.Text) == a.Id && a.Nombre == txtDescripcion.Text)
-                        {
-                            tipoAlimento = a.TipoAlim == "Pedecedero" ? TipoAlimento.pedecedero : TipoAlimento.no_pedecedero;
-                            prod = new Alimentos(a.Id, a.Precio, a.Nombre, a.Descripcion, tipoAlimento);
-                        }
-                    }
-                    if (p is Tecnologia)
-                    {
-                        Tecnologia a = (Tecnologia)p;
-                        if (int.Parse(txtId.Text) == a.Id && a.Nombre == txtDescripcion.Text)
-                        {
-                            tipoArtefacto = a.TipoArtef == "Celular" ? TipoArtefacto.Celular :
-                                a.TipoArtef == "Computadora" ? TipoArtefacto.Computadora :
-                                a.TipoArtef == "Televisor" ? TipoArtefacto.Televisor : TipoArtefacto.Monitor;
-                            prod = new Tecnologia(a.Id, a.Precio, a.Nombre, a.Especificaciones, tipoArtefacto);
-                        }
-                    }*/
                     this.Close();
                     this.DialogResult = DialogResult.OK;
                 }

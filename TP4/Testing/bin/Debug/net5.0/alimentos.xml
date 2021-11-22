@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Alimentos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Precio>123</Precio>
+  <Id>0</Id>
+  <Nombre>Leche</Nombre>
+  <Descripcion>Leche Descremada la serenisima</Descripcion>
+  <TipoAlim>No pedecedero</TipoAlim>
+</Alimentos>

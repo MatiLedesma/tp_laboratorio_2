@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfTecnologia xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Tecnologia>
+    <Precio>190000</Precio>
+    <Id>2</Id>
+    <Nombre>Iphone X</Nombre>
+    <Especificaciones>256gb 64 gb RAM</Especificaciones>
+    <TipoArtef>Celular</TipoArtef>
+  </Tecnologia>
+</ArrayOfTecnologia>

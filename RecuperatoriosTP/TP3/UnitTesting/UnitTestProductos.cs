@@ -85,7 +85,7 @@ namespace UnitTesting
         {
             bool areEquals;
             Tecnologia tecnologia_uno = new Tecnologia(1, 1000, "Iphone", "Iphone X", TipoArtefacto.Celular);
-            Tecnologia tecnologia_dos = new Tecnologia(1, 1000, "Iphone X", "Iphone X", TipoArtefacto.Celular);
+            Tecnologia tecnologia_dos = new Tecnologia(1, 1000, "Iphone", "Iphone X", TipoArtefacto.Celular);
             areEquals = tecnologia_uno == tecnologia_dos;
 
             Assert.IsTrue(areEquals);

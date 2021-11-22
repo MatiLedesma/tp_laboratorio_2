@@ -49,4 +49,3 @@ D:\UTN\ProgramaciónII\tp_laboratorio_2\TP4\StockForm\bin\Debug\net5.0-windows\r
 D:\UTN\ProgramaciónII\tp_laboratorio_2\TP4\StockForm\bin\Debug\net5.0-windows\runtimes\win-x86\native\sni.dll
 D:\UTN\ProgramaciónII\tp_laboratorio_2\TP4\StockForm\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\UTN\ProgramaciónII\tp_laboratorio_2\TP4\StockForm\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-D:\UTN\ProgramaciónII\tp_laboratorio_2\TP4\StockForm\obj\Debug\net5.0-windows\StockForm.csproj.CopyComplete

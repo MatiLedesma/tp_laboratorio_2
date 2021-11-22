@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
 
@@ -38,6 +39,14 @@ namespace StockForm
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            Task task = new Task(() => this.AgregarProductos());
+            task.Start();
+        }
+
+
+        #region Metodos
+        private void AgregarProductos()
         {
             try
             {
@@ -81,8 +90,6 @@ namespace StockForm
                 this.DialogResult = DialogResult.OK;
             }
         }
-
-        #region Metodos
         private void CheckTipoAlimStatus()
         {
             if (rbTecnologia.Checked)

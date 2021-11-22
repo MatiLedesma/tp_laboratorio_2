@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
 
@@ -12,6 +13,7 @@ namespace StockForm
         private CargarProducto cargar;
         private EliminarProducto eliminar;
         private AgregarBBDD agregar;
+        private EliminarBBDD eliminarBBDD;
         private Stock<Producto> stock = new Stock<Producto>(4);
         private SerializadorXML_JSON<List<Tecnologia>> serializadorXml_tecnologia;
         private SerializadorXML_JSON<List<Alimentos>> serializadorXml_alimentos;
@@ -28,6 +30,7 @@ namespace StockForm
             this.cargar = new CargarProducto(stock);
             this.eliminar = new EliminarProducto(stock);
             this.agregar = new AgregarBBDD(stock);
+            this.eliminarBBDD = new EliminarBBDD();
             this.serializadorXml_tecnologia = new SerializadorXML_JSON<List<Tecnologia>>(IArchivo<List<Tecnologia>>.ETipoArchivo.XML);
             this.serializadorXml_alimentos = new SerializadorXML_JSON<List<Alimentos>>(IArchivo<List<Alimentos>>.ETipoArchivo.XML);
             this.list_tec = new List<Tecnologia>();
@@ -146,6 +149,12 @@ namespace StockForm
             }
         }
 
+        private void btnTraer_Click(object sender, EventArgs e)
+        {
+            Task task = new Task(() => this.TraerDatos());
+            task.Start();
+        }
+
         #endregion
         #region Metodos
         /// <summary>
@@ -171,11 +180,12 @@ namespace StockForm
                     dtStock.Rows.Add(tec_arr);
                 }
             }
+
         }
-
-        #endregion
-
-        private void btnTraer_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Obtiene los datos de la base de datos
+        /// </summary>
+        private void TraerDatos()
         {
             try
             {
@@ -183,9 +193,21 @@ namespace StockForm
 
                 this.stock.Stock_a = conexion.ObtenerProductos();
             }
-            catch(Exception exception)
+            catch (Exception exception)
             {
                 MessageBox.Show(exception.Message, "Error");
+            }
+            }
+
+        #endregion
+
+        private void btnEBBDD_Click(object sender, EventArgs e)
+        {
+            this.eliminarBBDD.ShowDialog();
+            if (this.eliminarBBDD.DialogResult == DialogResult.OK)
+            {
+                Task task = new Task(() => this.TraerDatos());
+                task.Start();
             }
         }
     }

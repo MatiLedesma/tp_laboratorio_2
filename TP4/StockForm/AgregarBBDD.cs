@@ -46,6 +46,9 @@ namespace StockForm
 
 
         #region Metodos
+        /// <summary>
+        /// Agrega el producto segun el tipo de check que este marcado (tecnologia, alimento)
+        /// </summary>
         private void AgregarProductos()
         {
             try

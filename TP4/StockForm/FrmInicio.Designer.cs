@@ -36,7 +36,7 @@ namespace StockForm
             this.btnGuardarStock = new System.Windows.Forms.Button();
             this.dtStock = new System.Windows.Forms.DataGridView();
             this.btnActualizar = new System.Windows.Forms.Button();
-            this.btnGBBDD = new System.Windows.Forms.Button();
+            this.btnEBBDD = new System.Windows.Forms.Button();
             this.btnCBBDD = new System.Windows.Forms.Button();
             this.btnTraer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtStock)).BeginInit();
@@ -114,14 +114,15 @@ namespace StockForm
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
-            // btnGBBDD
+            // btnEBBDD
             // 
-            this.btnGBBDD.Location = new System.Drawing.Point(433, 180);
-            this.btnGBBDD.Name = "btnGBBDD";
-            this.btnGBBDD.Size = new System.Drawing.Size(203, 36);
-            this.btnGBBDD.TabIndex = 9;
-            this.btnGBBDD.Text = "Guardar Stock BBDD";
-            this.btnGBBDD.UseVisualStyleBackColor = true;
+            this.btnEBBDD.Location = new System.Drawing.Point(433, 180);
+            this.btnEBBDD.Name = "btnEBBDD";
+            this.btnEBBDD.Size = new System.Drawing.Size(203, 36);
+            this.btnEBBDD.TabIndex = 9;
+            this.btnEBBDD.Text = "Eliminar Stock BBDD";
+            this.btnEBBDD.UseVisualStyleBackColor = true;
+            this.btnEBBDD.Click += new System.EventHandler(this.btnEBBDD_Click);
             // 
             // btnCBBDD
             // 
@@ -149,7 +150,7 @@ namespace StockForm
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(648, 395);
             this.Controls.Add(this.btnTraer);
-            this.Controls.Add(this.btnGBBDD);
+            this.Controls.Add(this.btnEBBDD);
             this.Controls.Add(this.btnCBBDD);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.dtStock);
@@ -175,7 +176,7 @@ namespace StockForm
         private System.Windows.Forms.Button btnGuardarStock;
         private System.Windows.Forms.DataGridView dtStock;
         private System.Windows.Forms.Button btnActualizar;
-        private System.Windows.Forms.Button btnGBBDD;
+        private System.Windows.Forms.Button btnEBBDD;
         private System.Windows.Forms.Button btnCBBDD;
         private System.Windows.Forms.Button btnTraer;
     }

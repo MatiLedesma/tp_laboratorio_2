@@ -169,6 +169,74 @@ namespace Entidades
             return status;
         }
 
+        public bool EliminarAlimento(int id)
+        {
+            bool status = false;
+            try
+            {
+                string query = $"DELETE FROM dbo.productos WHERE id={id}";
+                this.command = new SqlCommand();
+                this.command.CommandType = CommandType.Text;
+                this.command.CommandText = query;
+                this.command.Connection = this.conexion;
+
+                this.conexion.Open();
+
+                int rowsChange = this.command.ExecuteNonQuery();
+                if (rowsChange != 0)
+                {
+                    status = true;
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"{e.Message}\n{e.StackTrace}");
+            }
+            finally
+            {
+                if (this.conexion.State == ConnectionState.Open)
+                {
+                    this.conexion.Close();
+                }
+            }
+
+            return status;
+        }
+        public bool EliminarTecnologia(int id)
+        {
+            bool status = false;
+            try
+            {
+                string query = $"DELETE FROM dbo.tecnologia WHERE id={id}";
+                this.command = new SqlCommand();
+                this.command.CommandType = CommandType.Text;
+                this.command.CommandText = query;
+                this.command.Connection = this.conexion;
+                this.conexion.Open();
+
+                int rowsChange = this.command.ExecuteNonQuery();
+                if (rowsChange != 0)
+                {
+                    status = true;
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"{e.Message}\n{e.StackTrace}");
+            }
+            finally
+            {
+                if (this.conexion.State == ConnectionState.Open)
+                {
+                    this.conexion.Close();
+                }
+            }
+
+            return status;
+        }
+
         #endregion
     }
 }

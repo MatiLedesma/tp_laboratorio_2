@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using Entidades;
 
 namespace StockForm
-{
+{  
     public partial class FrmInicio : Form
     {
         #region Atributos
@@ -121,6 +121,7 @@ namespace StockForm
                 this.stock.Stock_a.Clear();
                 this.list_alim = new List<Alimentos>(this.serializadorXml_alimentos.Leer(this.path_alimentos));
                 this.list_tec = new List<Tecnologia>(this.serializadorXml_tecnologia.Leer(this.path_tecnologia));
+                stock.errorLog += Manejador_GenerarLog;
                 foreach (Alimentos a in this.list_alim)
                 {
                     this.stock.Stock_a.Add(a);
@@ -133,10 +134,7 @@ namespace StockForm
             }
             catch(Exception exception)
             {
-                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "error.log");
-                Archivo archivo = new Archivo();
-                MessageBox.Show($"Para ver mas detalles: {path}", "Error");
-                archivo.Escribir($"{exception.Message}", path);
+                MessageBox.Show(exception.Message);
             }
         }
 
@@ -197,7 +195,7 @@ namespace StockForm
             {
                 MessageBox.Show(exception.Message, "Error");
             }
-            }
+        }
 
         #endregion
 
@@ -209,6 +207,16 @@ namespace StockForm
                 Task task = new Task(() => this.TraerDatos());
                 task.Start();
             }
+        }
+
+        private void Manejador_GenerarLog(string messageError)
+        {
+			string path;
+			GenerarLog generar = new GenerarLog();
+
+			generar.ImprimirLog(messageError, out path);
+			MessageBox.Show($"Para ver mas detalles: {path}", "Error");
+
         }
     }
 }

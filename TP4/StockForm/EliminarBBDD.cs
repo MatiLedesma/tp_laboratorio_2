@@ -22,8 +22,7 @@ namespace StockForm
         #endregion
 
         private void EliminarBBDD_Load(object sender, EventArgs e)
-        {
-
+        {            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -37,7 +36,7 @@ namespace StockForm
             try
             {
                 Conexion conexion = new Conexion();
-                if (comboBox1.Text == "Alimento")
+                if (cbxTipo.Text == "Alimento")
                 {
                     conexion.EliminarAlimento(int.Parse(txtId.Text));
                 }

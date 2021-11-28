@@ -4,11 +4,14 @@ using System.Text;
 
 namespace Entidades
 {
+    public delegate void DelegateLog(string errorMessage);
+
     public class Stock <T> where T : class
     {
         #region Atributos
         private List<T> stock;
         private int cantidadStock;
+        public event DelegateLog errorLog;
         #endregion
 
         public List<T> Stock_a
@@ -91,12 +94,13 @@ namespace Entidades
                 }
                 else
                 {
-                    throw new Exception("Error: el elemento ya existe en el stock");
+                    s.errorLog.Invoke("Error: el elemento ya existe en el stock");
                 }
             }
             else
             {
-                throw new Exception("Error: no hay mas espacio disponible");
+                if (s != null)
+                    s.errorLog.Invoke("Error: no hay mas espacio disponible");
             }
             return s;
         }
@@ -114,7 +118,7 @@ namespace Entidades
             }
             else
             {
-                throw new Exception($"Error: el objeto que desea eliminar no fue encontrado");
+                s.errorLog.Invoke($"Error: el objeto que desea eliminar no fue encontrado");
             }
             return s;
         }
